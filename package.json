@@ -1,7 +1,7 @@
 {
   "name": "broccoli-extract-comments",
   "version": "0.0.1",
-  "description": "Extract and write comments to destination",
+  "description": "Extracts code comments from source files",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
