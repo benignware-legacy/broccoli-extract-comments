@@ -12,6 +12,13 @@
   ],
   "author": "Rafael Nowrotek",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benignware/broccoli-extract-comments.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benignware/broccoli-extract-comments/issues"
+  },
   "dependencies": {
     "broccoli-caching-writer": "^0.5.4",
     "broccoli-kitchen-sink-helpers": "^0.2.0",
