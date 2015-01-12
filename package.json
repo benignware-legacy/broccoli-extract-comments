@@ -1,7 +1,7 @@
 {
   "name": "broccoli-extract-comments",
   "version": "0.0.1",
-  "description": "Extracts code comments from source files",
+  "description": "Extract code comments from source files",
   "main": "index.js",
   "scripts": {
     "test": "mocha",

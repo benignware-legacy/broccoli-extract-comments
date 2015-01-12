@@ -1,5 +1,5 @@
 # broccoli-extract-comments
-> Extracts code comments from source files
+> Extract code comments from source files
 
 This broccoli-plugin let's you extract code comments and write into an output-file.
 
