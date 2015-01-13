@@ -1,6 +1,6 @@
 {
   "name": "broccoli-extract-comments",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Extract code comments from source files",
   "main": "index.js",
   "scripts": {
