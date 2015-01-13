@@ -7,13 +7,12 @@
 
 var fs = require('node-fs');
 var path = require('path');
-var pathCompleteExtname = require('path-complete-extname');
 var BroccoliHelpers = require('broccoli-kitchen-sink-helpers');
 var Writer = require('broccoli-writer');
 var CachingWriter = require('broccoli-caching-writer');
 var glob = require('glob');
 var merge = require('deepmerge');
-var extractComments = require('extract-comments');
+var extract = require('./lib/extract');
 
 function writeFile(file, buffer, mtime) {
   mtime = mtime || new Date().getTime();
@@ -36,6 +35,7 @@ function BroccoliExtractComments(inputTree, options) {
     allowNone: true,
     separator: '\n',
     filter: null,
+    raw: false,
     outputFile: 'comments.txt'
   }, options);
   
@@ -83,46 +83,25 @@ BroccoliExtractComments.prototype.write = function (readPath, destDir) {
       return;
     }
     
-    var 
-      output = [],
-      comments = extractComments.fromFiles(inputFiles.map(function(file) { return path.join(srcDir, file);}));
-      
-    Object.keys(comments)
-      // Fetch comments
-      .forEach(function(file) {
-        var fileComments = comments[file];
-        output = output.concat(Object.keys(fileComments).map(function(index) {
-          var
-            comment = fileComments[index],
-            use = true,
-            contents = "";
-          if (typeof options.filter === "function") {
-            use = options.filter(comment.comment, comment.begin, comment.end, comment.type);
-          }
-          if (use) {
-            if (options.copyLines) {
-              contents = fs.readFileSync(file, "utf8");
-              return contents.split("\n").slice(Math.max(comment.begin - 1, 0), comment.end).join("\n");
-            }
-            return comment.comment.trim();
-          }
-          return null;
-        }))
-      // Filter null values
-      .filter(function(value) {
-        if (value) {
-          return true;
-        }
-        return false;
-      });
+    var
+      files = inputFiles.map(function(file) { return path.join(srcDir, file);}),
+      comments = extract.fromFiles(files),
+      output = [];
+          
+    if (typeof options.filter === "function") {
+      comments = comments.filter(options.filter);
+    }
+
+    output = comments.map(function(comment) {
+      return options.raw ? comment.raw : comment.text;
     });
+      
     if (options.outputFile) {
       writeFile(path.join(destDir, options.outputFile), output.join(options.separator));
     }
+    
   });
 };
-
-
 
 
 module.exports = BroccoliExtractComments;

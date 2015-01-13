@@ -1,10 +1,10 @@
 var extractComments = require('../..');
 
 var commentsTree = extractComments('src', {
-  /*copyLines: true,*/
   /*filter: function(comment) {
-    return comment.indexOf('Hello') >= 0;
+    return comment.text.indexOf('Hello World!') >= 0;
   },*/
+  /*raw: true,*/
   inputFiles: [
     '**.*'
   ],

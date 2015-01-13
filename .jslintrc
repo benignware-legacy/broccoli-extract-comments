@@ -1,4 +1,5 @@
 {
+  "ass": true,
   "indent" : 2,
   "boss": true,
   "curly": true,
@@ -14,11 +15,10 @@
   "white": true,
   "nomen": true,
   "stupid": true, 
+  "regexp": true,
   "predef": [
     "before",
     "describe",
-    "it",
-    "Uint8Array",
-    "toBuffer"
+    "it"
   ]
 }

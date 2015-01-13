@@ -1,10 +1,15 @@
 /**
- *   Hello Javascript!
- * 
+ * Hello World!
+ * Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+ * Aenean commodo ligula eget dolor.
  */
 
 console.log("javascript");
 
 /* 
- * Another javascript comment
+ * Block comment
  */
+
+// Line comment
+
+var string = "/* Comment tokens inside literals */";

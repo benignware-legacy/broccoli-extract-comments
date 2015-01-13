@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "lint": "jslint *.js test/*.js"
+    "lint": "jslint *.js test/*.js lib/*.js"
   },
   "keywords": [
     "broccoli-plugin"

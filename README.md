@@ -29,11 +29,11 @@ Default value: `false`
 
 Allows for empty file paths in broccoli's globbing pattern
 
-#### options.copyLines
+#### options.raw
 Type: `Boolean`
 Default value: `false`
 
-Specifies whether to copy lines including comment tokens
+Specifies whether to output raw comments instead of extracted text.
 
 #### options.filter
 Type: `Function`
@@ -43,7 +43,7 @@ Specify a callback-function to filter desired comments, i.e.:
 
 ```js
 function(comment) {
-  return comment.indexOf('Hello') >= 0;
+  return comment.text.indexOf('Hello World!') >= 0;
 }
 ```
 
