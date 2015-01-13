@@ -9,7 +9,6 @@ var fs = require('node-fs');
 var path = require('path');
 var BroccoliHelpers = require('broccoli-kitchen-sink-helpers');
 var Writer = require('broccoli-writer');
-var CachingWriter = require('broccoli-caching-writer');
 var glob = require('glob');
 var merge = require('deepmerge');
 var extract = require('./lib/extract');
