@@ -38,9 +38,7 @@ function BroccoliExtractComments(inputTree, options) {
     raw: false,
     outputFile: 'comments.txt'
   }, options);
-  
-  // Setup during build
-  this._environment = null;
+
 }
 BroccoliExtractComments.prototype = Object.create(Writer.prototype);
 BroccoliExtractComments.prototype.constructor = Writer;
